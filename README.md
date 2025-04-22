@@ -9,33 +9,30 @@ This project demonstrates a simple Kubernetes CronJob implementation to automate
 - **Kubernetes CronJob**: Automated log cleanup every hour using CronJobs.
 - **Bash Script**: A simple bash script that deletes old log files.
 
-## Steps to Run
+## Key Steps
+1. **MicroK8s Setup**: 
+   - Installed MicroK8s on Ubuntu to set up a local Kubernetes cluster.
+   - Enabled necessary add-ons like DNS and storage for better functionality.
 
-### 1. Set up MicroK8s
-Install [MicroK8s](https://microk8s.io/) on your local machine for Kubernetes setup.
+2. **Docker Image Creation**: 
+   - Created a bash script `clean-logs.sh` that deletes logs older than 30 days.
+   - Built a Docker image to run the log cleanup script in a containerized environment.
 
-```bash
-sudo snap install microk8s --classic
+3. **CronJob Setup**: 
+   - Created a Kubernetes CronJob to automatically run the log cleanup script every hour, ensuring regular maintenance.
 
-### 2. Build the Docker Image
+4. **Testing and Monitoring**:
+   - Deployed everything using MicroK8s and used `kubectl` to monitor the CronJob, jobs, and pods.
+   - Troubleshot any issues and ensured that the log cleanup was working as expected.
 
-```bash
-docker build -t log-cleaner .
+5. **Hosting & Deployment**: 
+   - Deployed the setup on MicroK8s to test the end-to-end process, ensuring the job was triggered successfully.
 
-### 3. Create the Kubernetes CronJob:
+### Prerequisites:
+1. **MicroK8s** installed on your local machine (for Kubernetes cluster).
+2. **Docker** installed to build the container image.
+3. **kubectl** installed to manage Kubernetes resources.
 
-```bash
-kubectl apply -f kubernetes-cronjob.yaml
 
-### 4. Monitor the CronJob:
-
-```bash
-
-kubectl get cronjobs
-kubectl get jobs
-kubectl get pods
-
-Verify that the CronJob runs successfully and performs the log cleanup task.
-
-Conclusion
-This project helped me gain hands-on experience with Kubernetes and Docker, and I learned how to automate tasks using CronJobs. It was a great way to understand how container orchestration works at scale. Looking forward to exploring more Kubernetes-based automation projects!
+### Conclusion
+This project helped me gain hands-on experience with Kubernetes and Docker, and I learned how to automate tasks using CronJobs. It was a great way to understand how container orchestration works at scale. 
