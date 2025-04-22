@@ -28,11 +28,11 @@ This project demonstrates a simple Kubernetes CronJob implementation to automate
 5. **Hosting & Deployment**: 
    - Deployed the setup on MicroK8s to test the end-to-end process, ensuring the job was triggered successfully.
 
-### Prerequisites:
+## Prerequisites:
 1. **MicroK8s** installed on your local machine (for Kubernetes cluster).
 2. **Docker** installed to build the container image.
 3. **kubectl** installed to manage Kubernetes resources.
 
 
-### Conclusion
+## Conclusion
 This project helped me gain hands-on experience with Kubernetes and Docker, and I learned how to automate tasks using CronJobs. It was a great way to understand how container orchestration works at scale. 
