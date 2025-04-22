@@ -3,7 +3,7 @@ kind: CronJob
 metadata:
   name: log-cleaner-cron
 spec:
-  schedule: "0 * * * *"  # This will run at the start of every hour
+  schedule: "0 * * * *"  
   jobTemplate:
     spec:
       template:
@@ -11,5 +11,5 @@ spec:
           containers:
           - name: log-cleaner
             image: log-cleaner:latest
-            imagePullPolicy: IfNotPresent  # "Never" because we are using a local image
+            imagePullPolicy: IfNotPresent  
           restartPolicy: OnFailure
